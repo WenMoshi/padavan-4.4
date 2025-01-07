@@ -30,7 +30,8 @@ jobs:
           cd trunk
           fakeroot ./build_firmware_modify CR660x
 
-      - name: Clean build tree
-        run: |
-          cd trunk
-          ./clear_tree
+      - name: Upload firmware
+        uses: actions/upload-artifact@v3
+        with:
+          name: Firmware-CR660x
+          path: trunk/images/*.trx
