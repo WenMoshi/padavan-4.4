@@ -30,8 +30,12 @@ jobs:
           cd trunk
           fakeroot ./build_firmware_modify CR660x
 
+      - name: Set timestamp
+        id: timestamp
+        run: echo "timestamp=$(date '+%Y%m%d-%H%M%S')" >> $GITHUB_ENV
+
       - name: Upload firmware
         uses: actions/upload-artifact@v3
         with:
-          name: Firmware-CR660x
+          name: CR660x(${{ env.timestamp }})
           path: trunk/images/*.trx
