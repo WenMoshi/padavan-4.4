@@ -29,3 +29,8 @@ jobs:
         run: |
           cd trunk
           fakeroot ./build_firmware_modify CR660x
+
+      - name: Clean build tree
+        run: |
+          cd trunk
+          ./clear_tree
